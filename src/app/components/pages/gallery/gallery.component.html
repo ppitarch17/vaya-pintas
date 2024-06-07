@@ -1,0 +1,7 @@
+<section class="grid w-full auto-rows-auto grid-cols-3 gap-4 max-w-screen-lg">
+    @for (item of pics; track $index) {
+    <div class="">
+        <img [src]="item.foto" alt="" class="w-full ">
+    </div>
+    }
+</section>

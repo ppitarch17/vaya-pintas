@@ -1,11 +1,11 @@
 <div class="bg-green-800 border-b border-emerald-700">
     <nav class="bg-green-800 p-3 flex justify-between max-w-screen-lg mx-auto w-full">
         <ul class="flex justify-start items-center space-x-4">
-            <li><a href="#" class="text-white hover:text-gray-300">Vaya Pintas!</a></li>
-            <li><a href="#" class="text-white hover:text-gray-300">La colla</a></li>
-            <li><a href="#" class="text-white hover:text-gray-300">La gente</a></li>
-            <li><a href="#" class="text-white hover:text-gray-300">Magdalena</a></li>
-            <li><a href="#" class="text-white hover:text-gray-300">Fotos</a></li>
+            <li><a href="#" [routerLink]="['/home']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Vaya Pintas!</a></li>
+            <li><a href="#" [routerLink]="['/la-colla']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">La colla</a></li>
+            <li><a href="#" [routerLink]="['/la-gente']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">La gente</a></li>
+            <li><a href="#" [routerLink]="['/magdalena']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Magdalena</a></li>
+            <li><a href="#" [routerLink]="['/fotos']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Fotos</a></li>
         </ul>
         <img src="assets/vaya_logo.svg" alt="" class="size-10 filter invert">
     </nav>
