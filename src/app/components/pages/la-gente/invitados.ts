@@ -12,7 +12,7 @@ export const invitados = [
     {
         nombre: 'Sergi',
         apellido: '',
-        foto: '/assets/fotos/sergi.png'
+        foto: '/assets/fotos/sergi.jpg'
     },
     {
         nombre: 'Sofia',

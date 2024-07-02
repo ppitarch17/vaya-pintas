@@ -1,7 +1,7 @@
-<section class="grid w-full auto-rows-auto grid-cols-3 gap-4 max-w-screen-lg">
+<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:max-w-screen-lg mx-auto p-3">
     @for (item of pics; track $index) {
-    <div class="">
-        <img [src]="item.foto" alt="" class="w-full ">
+    <div class="w-full h-auto rounded-xl">
+        <img [src]="item.foto" alt="" class="w-full h-full object-cover rounded-xl">
     </div>
     }
 </section>
