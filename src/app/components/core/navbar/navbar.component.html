@@ -1,12 +1,68 @@
-<div class="bg-green-800 border-b border-emerald-700">
-    <nav class="bg-green-800 p-3 flex justify-between max-w-screen-lg mx-auto w-full">
-        <ul class="flex justify-start items-center space-x-4">
-            <li><a href="#" [routerLink]="['/home']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Vaya Pintas!</a></li>
-            <li><a href="#" [routerLink]="['/la-colla']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">La colla</a></li>
-            <li><a href="#" [routerLink]="['/la-gente']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">La gente</a></li>
-            <li><a href="#" [routerLink]="['/magdalena']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Magdalena</a></li>
-            <li><a href="#" [routerLink]="['/fotos']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Fotos</a></li>
+<!-- <div class="bg-green-800 border-b border-emerald-700">
+    <nav class="bg-green-800 p-3 flex justify-between items-center max-w-screen-lg mx-auto w-full">
+        <button id="menu-toggle" class="block lg:hidden text-white focus:outline-none" (click)="toggleMenu()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <img src="assets/vaya_logo.svg" alt="Logo" class="size-10 filter invert lg:order-2">
+
+        <ul id="menu" class="hidden lg:flex lg:items-center lg:space-x-4 lg:order-1">
+            <li (click)="toggleMenu()"><a href="#" [routerLink]="['/home']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Vaya Pintas!</a></li>
+            <li (click)="toggleMenu()"><a href="#" [routerLink]="['/la-colla']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">La colla</a></li>
+            <li (click)="toggleMenu()"><a href="#" [routerLink]="['/la-gente']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">La gente</a></li>
+            <li (click)="toggleMenu()"><a href="#" [routerLink]="['/magdalena']" routerLinkActive="bg-white !text-green-800 rounded p-2" class="text-white flex hover:bg-white hover:text-green-800 hover:p-2 hover:rounded transition-all">Magdalena</a></li>
         </ul>
-        <img src="assets/vaya_logo.svg" alt="" class="size-10 filter invert">
+    </nav>
+</div> -->
+
+<div [ngClass]="{'w-20': isCollapsed, 'w-64': !isCollapsed}"
+    class="bg-green-900 text-gray-200 transition-all duration-300 flex-col xl:flex hidden h-screen fixed top-0 left-0 z-10">
+    <!-- Toggle Button -->
+    <button class="text-gray-300 hover:bg-green-700 p-4 focus:outline-none" (click)="toggleCollapse()">
+        <!-- <mat-icon>menu</mat-icon> -->
+        <img src="assets/vaya_logo.svg" alt="Logo" class="size-10 filter invert">
+
+    </button>
+    <!-- Menu Items -->
+    <nav class="flex-1">
+        <ul>
+            @for (item of menuItems; track $index;) {
+
+            <li class="group">
+                <a href="{{item.route}}" class="flex items-center p-4 hover:bg-green-700 transition-colors"
+                    [ngClass]="{'justify-center': isCollapsed}">
+                    <i class="{{item.icon}}"></i>
+                    @if (!isCollapsed) {
+                    <span class="ml-4 group-hover:font-bold transition-all duration-300">
+                        {{ item.label }}
+                    </span>
+                    }
+                </a>
+            </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+<!-- Bottom Navigation Component -->
+<div class="bg-green-900 text-gray-200 fixed bottom-0 w-full flex justify-around xl:hidden">
+    <!-- Menu Items -->
+    <nav class="flex w-full">
+        <ul class="flex justify-around w-full items-center">
+            <img src="assets/vaya_logo.svg" alt="Logo" class="size-10 filter invert">
+
+            <!-- Loop through the menu items -->
+            @for (item of menuItems; track $index) {
+            <li class="group flex-1">
+                <a href="{{item.route}}"
+                    class="flex flex-col items-center justify-center p-2 hover:bg-green-700 transition-colors">
+                    <!-- <mat-icon>{{ item.icon }}</mat-icon> -->
+                    <span class="text-xs">{{ item.label }}</span>
+                </a>
+            </li>
+            }
+        </ul>
     </nav>
 </div>

@@ -4,11 +4,11 @@
     </div>
 </section>
 
-<section class="h-full text-white mx-auto">
+<section class="h-auto text-white mx-auto">
     <div class="md:max-w-screen-lg mx-auto px-4 flex flex-wrap justify-center gap-6 p-3">
     @for (item of personas; track $index) {
-        <div class="rounded-2xl p-3 bg-white text-green-800 w-36 sm:w-44">
-            <img [src]="item.foto" alt="" class="size-32 rounded-full object-cover mx-auto">
+        <div class="rounded-2xl p-3 bg-white text-green-800 w-28 sm:w-44">
+            <img [src]="item.foto" alt="" class="size-24 sm:size-32 rounded-full object-cover mx-auto">
             <h2 class="text-lg">{{ item.nombre }}</h2>
             <h3 class="text-sm">{{ item.ocupacion }}</h3>
         </div>
@@ -22,11 +22,11 @@
     </div>
 </section>
 
-<section class="h-full text-white mx-auto">
+<section class="h-auto text-white mx-auto">
     <div class="md:max-w-screen-lg mx-auto px-4 flex flex-wrap justify-center gap-6 p-3">
     @for (item of colaboradores; track $index) {
-        <div class="rounded-2xl p-3 bg-white text-green-800 w-36 sm:w-44">
-            <img [src]="item.foto" alt="" class="size-32 rounded-full object-cover mx-auto">
+        <div class="rounded-2xl p-3 bg-white text-green-800 w-28 sm:w-44">
+            <img [src]="item.foto" alt="" class="size-24 sm:size-32 rounded-full object-cover mx-auto">
             <h2 class="text-lg">{{ item.nombre + ' ' + item.apellido }}</h2>
         </div>
     }

@@ -14,6 +14,11 @@ export const invitados = [
         apellido: '',
         foto: '/assets/fotos/sergi.jpg'
     },
+    // {
+    //     nombre: 'Santi',
+    //     apellido: '',
+    //     foto: ''
+    // },
     {
         nombre: 'Sofia',
         apellido: '',

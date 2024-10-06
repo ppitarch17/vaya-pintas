@@ -31,7 +31,7 @@ export const personas = [
     },
     {
         nombre: 'Moli',
-        ocupacion: 'Cocinitas',
+        ocupacion: 'Abracitos',
         foto: '/assets/fotos/moli.png'
     },
     {
