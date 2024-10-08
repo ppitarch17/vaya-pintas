@@ -11,13 +11,20 @@ export class NextEventComponent {
   events = [
     {
       name: 'Halloween',
-      date: 'October 31',
+      date: '10/31',
+      fecha: '31 de Octubre'
     }, {
       name: 'Nochevieja',
-      date: 'December 31',
+      date: '12/31',
+      fecha: '31 de Diciembre'
     }
   ]
-  next!: string;
+  next!: {
+    name:  string;
+    date: string;
+    fecha: string;
+  }
+
 
   ngOnInit() {
     this.saveNextEvent()
@@ -25,19 +32,23 @@ export class NextEventComponent {
 
   saveNextEvent(): void {
     const currentDate = new Date();
-    let nextEvent: { name: string, date: string } | undefined;
+    let nextEvent: { name: string, date: string, fecha: string } | undefined;
 
     for (const event of this.events) {
-      const eventDate = new Date(`${event.date} ${currentDate.getFullYear()}`);
+      const eventDate = new Date(`${event.date}/${currentDate.getFullYear()}`);
       if (eventDate >= currentDate && (!nextEvent || eventDate < new Date(`${nextEvent.date} ${currentDate.getFullYear()}`))) {
         nextEvent = event;
       }
     }
 
     if (nextEvent) {
-      this.next = nextEvent.name;
+      this.next = nextEvent;
     } else {
-      this.next = '';
+      this.next = {
+        name: 'No hay eventos programados',
+        date: '',
+        fecha: ''
+      };
     }
   }
 }
